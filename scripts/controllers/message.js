@@ -2,9 +2,9 @@ coolestProjectsApp.controller('MessageCtrl', function($scope, $location, $http, 
     $scope.message = {
         message: "",
         session_hash: ""
-    }
+    };
 
-    $scope.messages = []
+    $scope.messages = [];
 
     socket.on('error', function(msg) {
         errorService.show(msg);
@@ -18,7 +18,7 @@ coolestProjectsApp.controller('MessageCtrl', function($scope, $location, $http, 
 
     $scope.send = function() {
         console.log('Message to be sent ');
-        $scope.message.session_hash = sessionService.getSecurityHash();
+        $scope.message.session_hash = sessionService.get("session_hash");
 
         errorService.clear();
         $scope.success = "";
