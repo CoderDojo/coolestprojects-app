@@ -20,6 +20,7 @@
       <script>
           document.addEventListener("deviceready", loadApp, true);
           function loadApp() {
+            alert("hello");
             navigator.splashscreen.hide();
             document.addEventListener("backbutton", navigator.app.exitApp, false);
           }
@@ -29,6 +30,7 @@
       <div ng-view>
       </div>
 
+      <script src="cordova.js"></script>
       <script src="scripts/vendor/jquery.js"></script>
       <script src="scripts/vendor/angular.js"></script>
       <script src="scripts/vendor/fastclick.min.js"></script>
