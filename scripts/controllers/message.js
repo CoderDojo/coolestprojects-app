@@ -23,7 +23,7 @@ coolestProjectsApp.controller('MessageCtrl', function($scope, $location, $http, 
         errorService.clear();
         $scope.success = "";
 
-        socket.emit('message', 
+        socket.emit('message',
         {
             "inferSrcUser": true,
             "source": "",
@@ -31,7 +31,7 @@ coolestProjectsApp.controller('MessageCtrl', function($scope, $location, $http, 
         });
 
         if (message) {
-            $http.post(API_URL + 'message/add', $scope.message)
+            $http.post(API_URL + '/message/add', $scope.message)
                 .success(function(data, status, headers, config) {
                     $scope.success = "Message added";
                     $scope.message = "";

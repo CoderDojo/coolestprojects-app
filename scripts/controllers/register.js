@@ -17,7 +17,9 @@ coolestProjectsApp.controller('RegisterCtrl', function($scope, $location, $http,
         passed = validatePassword($scope.user.password, $scope.repassword);
 
         if (passed) {
-            $http.post(API_URL + 'user/register', $scope.user)
+            console.log("attempting to post");
+            console.log(API_URL);
+            $http.post(API_URL + '/user/register', $scope.user)
                 .success(function(data, status, headers, config) {
                     console.log(data);
                 })
@@ -25,6 +27,8 @@ coolestProjectsApp.controller('RegisterCtrl', function($scope, $location, $http,
                     console.log(data.error.message);
                     errorService.show(data.error.message);
                 });
+        } else {
+            console.log("password issue");
         }
     };
 
